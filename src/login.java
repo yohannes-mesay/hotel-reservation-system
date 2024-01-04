@@ -1,4 +1,6 @@
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.sql.*;
@@ -29,6 +31,7 @@ public class login extends javax.swing.JFrame
     {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
