@@ -90,7 +90,7 @@ public class login extends javax.swing.JFrame
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1325, 14, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 20, -1, -1));
 
         jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
@@ -127,7 +127,7 @@ public class login extends javax.swing.JFrame
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 450, 130, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.jpg"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, -22, 1380, 810));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -165,7 +165,7 @@ public class login extends javax.swing.JFrame
             new adminHome().setVisible(true);
         }
         else {
-            ResultSet rs=Select.getData("Selct *from users where email='"+email+"' and password='"+password+"'");
+            ResultSet rs=Select.getData("Select *from users where email='"+email+"' and password='"+password+"'");
             try
             {
                 if(rs.next()){

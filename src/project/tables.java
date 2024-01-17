@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author johnn
  */
-public class tables
+public class Tables
         
 {
     public static void main(String[] args) 
