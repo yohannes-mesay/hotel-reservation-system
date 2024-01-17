@@ -7,7 +7,6 @@ import project.*;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author johnn
@@ -233,33 +232,42 @@ public class forgotPassword extends javax.swing.JFrame
         String answer = jTextField4.getText();
         String newPassword = jPasswordField1.getText();
         if (answer.equals("") || newPassword.equals(""))
-                 {
-            check=1;
+        {
+            check = 1;
             JOptionPane.showMessageDialog(null, "All Fileds are Required");
         }
-        else {
-            ResultSet rs=Select.getData("select * from users where email='"+email+"' and securityQuestion='"+securityQuestion+"' answer='"+answer+"'");
-            try{
-                if (rs.next()){
-                    check=1;
-                    InsertUpdateDelete.setData("update users set password='"+newPassword+"' where email='"+email+"'" ,"Password Changed Sucessfully" );
+        else
+        {
+            ResultSet rs = Select.getData("select * from users where email='" + email + "' and securityQuestion='" + securityQuestion + "' and  answer='" + answer + "'");
+            try
+            {
+                if (rs.next())
+                {
+                    check = 1;
+                    InsertUpdateDelete.setData("update users set password='" + newPassword + "' where email='" + email + "'", "Password Changed Sucessfully");
                 }
             }
-            catch{
-                
+            catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(null, e);
             }
-        }       
+        }
+        if (check == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Incorrect Answer");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton4ActionPerformed
     {//GEN-HEADEREND:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new signup().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton5ActionPerformed
     {//GEN-HEADEREND:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        setVisible(false);
+        new login().setVisible(true);    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

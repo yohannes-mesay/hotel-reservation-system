@@ -11,7 +11,6 @@ import project.Select;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author johnn
@@ -21,17 +20,18 @@ public class login extends javax.swing.JFrame
 
     /**
      * Creates new form login
-     * 
+     *
      */
-    private void makeFrameFullSize(JFrame aFrame) {
+    private void makeFrameFullSize(JFrame aFrame)
+    {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    aFrame.setSize(screenSize.width, screenSize.height);
-}
+        aFrame.setSize(screenSize.width, screenSize.height);
+    }
+
     public login()
     {
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -114,6 +114,13 @@ public class login extends javax.swing.JFrame
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 70, -1));
 
         jButton3.setText("Signup");
+        jButton3.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 450, 70, -1));
 
         jButton4.setText("Forgot Password?");
@@ -134,8 +141,8 @@ public class login extends javax.swing.JFrame
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton4ActionPerformed
     {//GEN-HEADEREND:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        setVisible(false);
+        new forgotPassword().setVisible(true);     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField1ActionPerformed
     {//GEN-HEADEREND:event_jTextField1ActionPerformed
@@ -164,37 +171,49 @@ public class login extends javax.swing.JFrame
             setVisible(false);
             new adminHome().setVisible(true);
         }
-        else {
-            ResultSet rs=Select.getData("Select *from users where email='"+email+"' and password='"+password+"'");
+        else
+        {
+            ResultSet rs = Select.getData("Select *from users where email='" + email + "' and password='" + password + "'");
             try
             {
-                if(rs.next()){
-                    check=1;
-                    if(rs.getString(7).equals("true"))
-                    {setVisible(false);
+                if (rs.next())
+                {
+                    check = 1;
+                    if (rs.getString(7).equals("true"))
+                    {
+                        setVisible(false);
                         new home().setVisible(true);
                     }
-                    else 
+                    else
+                    {
                         JOptionPane.showMessageDialog(null, "Please wait for admin approval");
-                    
+                    }
+
                 }
             }
-            catch(Exception e){
+            catch (Exception e)
+            {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
-        if(check==0){
+        if (check == 0)
+        {
             JOptionPane.showMessageDialog(null, "Incorrect email or password");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
-            // TODO add your handling code here:
-         int a=JOptionPane.showConfirmDialog(null, "Do you really want to close this application","Select",JOptionPane.YES_NO_OPTION);
-       if(a==0)
-           System.exit(0);
+        // TODO add your handling code here:
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to close this application", "Select", JOptionPane.YES_NO_OPTION);
+        if (a == 0)
+            System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton3ActionPerformed
+    {//GEN-HEADEREND:event_jButton3ActionPerformed
+        setVisible(false);
+        new signup().setVisible(true);    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
