@@ -22,14 +22,15 @@ public class Tables
         {
             con = ConnectionProvider.getCon();
             st = con.createStatement();
-st.executeUpdate("CREATE TABLE users ("
-        + "name VARCHAR(200), "
-        + "email VARCHAR(200), "
-        + "password VARCHAR(50), "
-        + "securityQuestion VARCHAR(500), "
-        + "answer VARCHAR(200), "
-        + "address VARCHAR(200), "
-        + "status VARCHAR(20))");
+            st.executeUpdate("CREATE TABLE users ("
+                    + "name VARCHAR(200), "
+                    + "email VARCHAR(200), "
+                    + "password VARCHAR(50), "
+                    + "securityQuestion VARCHAR(500), "
+                    + "answer VARCHAR(200), "
+                    + "address VARCHAR(200), "
+                    + "status VARCHAR(20))");
+st.executeUpdate ("create table room (roomNo varchar (10) , roomType varchar (200) , bed varchar (200),price int, status varchar(20)) ");
             JOptionPane.showMessageDialog(null, "Table created successfully");
         }
         catch (Exception e)
