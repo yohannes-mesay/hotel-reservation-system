@@ -31,9 +31,11 @@ public class Tables
                     + "address VARCHAR(200), "
                     + "status VARCHAR(20))");
 st.executeUpdate ("create table room (roomNo varchar (10) , roomType varchar (200) , bed varchar (200),price int, status varchar(20)) ");
-            JOptionPane.showMessageDialog(null, "Table created successfully");
+st.executeUpdate("CREATE TABLE customer (id INT, name VARCHAR(200), mobileNumber VARCHAR(20), nationality VARCHAR(200), gender VARCHAR(50), email VARCHAR(200), idProof VARCHAR(200), address VARCHAR(200), checkIn VARCHAR(50), roomNo VARCHAR(10), bed VARCHAR(200), roomType VARCHAR(200), pricePerDay INT(10), numberOfDaysStay INT(10), totalAmount VARCHAR(200), checkOut VARCHAR(50))");
+            JOptionPane.showMessageDialog(null, "Table createOd successfully");
+
         }
-        catch (Exception e)
+            catch (Exception e)
         {
             JOptionPane.showMessageDialog(null, e);
         }

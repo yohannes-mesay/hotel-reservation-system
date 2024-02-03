@@ -339,10 +339,10 @@ public class CustomerCheckin extends javax.swing.JFrame
             if (!price.equals(""))
             {
                 Query = "update room set status='Booked' where roomNo='" + roomNo + "'";
-                InsertupdateDelete.setData(Query, "");
+                InsertUpdateDelete.setData(Query, "");
 
                 Query = "insert customer (id, name, mobileNumber, nationality, gender, email, idProof, address, checkIn, roomNo, bed, roomType, pricePerDay) values(" + id + ",'" + name + "','" + mobileNumber + "','" + nationality + "','" + gender + "','" + email + "','" + idProof + "','" + address + "','" + checkIn + "','" + roomNo + "','" + bed + "','" + roomType + "','" + price + "')";
-                InsertupdateDelete.setData(Query, "Customer Checkin Successfully");
+                InsertUpdateDelete.setData(Query, "Customer Checkin Successfully");
                 setVisible(false);
                 new CustomerCheckin().setVisible(true);
             }

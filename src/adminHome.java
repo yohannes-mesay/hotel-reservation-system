@@ -139,6 +139,13 @@ public class adminHome extends javax.swing.JFrame
                 jTable1MouseClicked(evt);
             }
         });
+        jTable1.addComponentListener(new java.awt.event.ComponentAdapter()
+        {
+            public void componentShown(java.awt.event.ComponentEvent evt)
+            {
+                jTable1ComponentShown(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 801, 463));
@@ -243,6 +250,11 @@ public class adminHome extends javax.swing.JFrame
         
      }//GEN-LAST:event_jTable1MouseClicked
 
+    private void jTable1ComponentShown(java.awt.event.ComponentEvent evt)//GEN-FIRST:event_jTable1ComponentShown
+    {//GEN-HEADEREND:event_jTable1ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1ComponentShown
+
     /**
      * @param args the command line arguments
      */
@@ -282,7 +294,6 @@ public class adminHome extends javax.swing.JFrame
         }
         //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable()
         {
             public void run()
