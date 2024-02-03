@@ -1,4 +1,7 @@
+import javax.swing.table.DefaultTableModel;
 import project.*;
+import java.sql.*;
+import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -47,6 +50,13 @@ public class manageRoom extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(50, 118));
         setUndecorated(true);
+        addComponentListener(new java.awt.event.ComponentAdapter()
+        {
+            public void componentShown(java.awt.event.ComponentEvent evt)
+            {
+                formComponentShown(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -176,7 +186,7 @@ public class manageRoom extends javax.swing.JFrame
         String roomType=(String)jComboBox1.getSelectedItem();
         String bed=(String)jComboBox2.getSelectedItem();
         String price=jTextField3.getText();
-        String Query = "insert into room values ( '"+roomNo+"' , '"+roomType+"','"+bed+"','"+price +"')";
+        String Query = "insert into room values ( '"+roomNo+"' , '"+roomType+"','"+bed+"','"+price +"','Not Booked')";
              InsertUpdateDelete.setData(Query, "Successfully Updated");
 
         setVisible(false);
@@ -184,6 +194,27 @@ public class manageRoom extends javax.swing.JFrame
 
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt)//GEN-FIRST:event_formComponentShown
+    {//GEN-HEADEREND:event_formComponentShown
+        ResultSet rs = Select.getData("select * from room");
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        try
+        {
+            while (rs.next())
+            {
+                model.addRow(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)});               
+            }
+            rs.close();
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
+    }//GEN-LAST:event_formComponentShown
 
     /**
      * @param args the command line arguments

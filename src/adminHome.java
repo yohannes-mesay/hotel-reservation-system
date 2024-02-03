@@ -5,9 +5,20 @@ import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+/**
+ *
+ * @author johnn
+ */
 public class adminHome extends javax.swing.JFrame
 {
 
+    /**
+     * Creates new form adminHome
+     */
     public adminHome()
     {
         initComponents();
